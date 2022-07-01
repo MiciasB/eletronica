@@ -1,0 +1,84 @@
+
+#include<stdio.h>
+#include<stdlib.h>
+#define COMPARA(v3, v4) v3 > v4 ? v3 : v4
+typedef struct 
+{
+ float tensao;
+ float resistor1;
+ float resistor2;
+ float potencia;
+//**********************************************************
+}tCircuitos;
+   void PotAssociadaSerie(tCircuitos *a,float b,float c, float d)
+{
+    a-> potencia =  b * b /(c + d);
+}
+//************************************************************
+   void TrocaFonte(tCircuitos *nova,float b, float c, float d)
+{
+     nova -> potencia = ( b * b /(c + d));   
+}
+//***********************************************************
+
+int ComparaTensaoCircuitos(float v1,float v2,float r1,float r2)
+{
+float valor1,valor2,maior;
+valor1 =  v1 * v1 /(r1 + r2);
+valor2 = v2 * v2 / (r1 + r2);
+
+if (v1 > v2)
+maior = valor1;
+else
+maior = valor2;
+
+return maior;
+}
+//**********************************************************
+
+
+int main()
+{
+
+ tCircuitos  res1,res2,v1,wats,a;
+   v1.tensao = 30;
+  res1.resistor1 = 5;
+  res2.resistor2 = 5;
+  PotAssociadaSerie(&wats,v1.tensao,res1.resistor1,res2.resistor2);
+  printf("\n o valor da potencia eh de: %.2f watts\n",wats.potencia);
+
+tCircuitos v2,pot,r1,r2,nova;
+v2.tensao = 40;
+r1.resistor1 =5;
+r2.resistor2 = 5;
+
+TrocaFonte(&pot,v2.tensao,r1.resistor1,r2.resistor2);
+printf(" o novo valor da potencia eh de: %.2f watts\n",pot.potencia);
+
+//tCircuitos v3,v4;
+//v3.tensao = 21;
+//v1.tensao =5;
+//r2.resistor1 =10;
+float resultado;
+float maior;
+
+resultado = ComparaTensaoCircuitos(v1.tensao,v2.tensao,r1.resistor1,r2.resistor2);
+printf ("O valor eh: %.2f\n",resultado);
+
+//if (COMPARA(v1.tensao,v2.tensao))
+//v1.tensao = 15;
+//v2.tensao = 12;
+//float v3,v4;
+//v3 = v1.tensao;
+//v4 = v2.tensao;
+  printf("%.2f\n",COMPARA(v1.tensao,v2.tensao));
+
+
+
+
+
+
+    return 0;
+
+}
+
