@@ -77,7 +77,7 @@ printf ("O valor eh: %.2f\n",resultado);
 
 
 
-
+terminado.
     return 0;
 
 }
